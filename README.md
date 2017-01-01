@@ -1,5 +1,4 @@
 # asdf-sml
-=======
 
 [![Build Status](https://travis-ci.org/nverno/asdf-sml.svg?branch=master)](https://travis-ci.org/nverno/asdf-sml)
 
