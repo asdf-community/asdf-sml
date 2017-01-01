@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+sort_cmd='sort'
+if sort --help | grep -q -- '-V'; then
+  sort_cmd='sort -V'
+fi
+
+uri="http://smlnj.cs.uchicago.edu/dist/working/"
+ver=$(curl -s $uri | grep -Po "(?<=<b>)[0-9.]+(?=</b>)" | uniq | $sort_cmd)
+echo $ver
