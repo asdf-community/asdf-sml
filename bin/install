@@ -1,22 +1,32 @@
 #!/usr/bin/env bash
 
-set -e
+set -eo pipefail
 
 install_sml() {
-    local install_type=$1
-    local version=$2
-    local install_path=$3
-    local base_uri="http://smlnj.cs.uchicago.edu/dist/working"
+  local install_type=$1
+  local version=$2
+  local install_path=$3
+  local base_uri="http://smlnj.cs.uchicago.edu/dist/working"
 
-    mkdir -p "$install_path"
-    curl -Lo "$install_path/config.tgz" "$base_uri/$version/config.tgz"
+  local is64
 
-    # build
-    (
-        cd "$install_path"
-        gunzip < config.tgz | tar xf -
-        config/install.sh
-    )
+  case "$(uname -m)" in
+    x86_64 | x86-64 | x64 | amd64) is64=true ;;
+    *) is64=false ;;
+  esac
+
+  mkdir -p "$install_path"
+  curl -Lo "$install_path/config.tgz" "$base_uri/$version/config.tgz"
+
+  (
+    cd "$install_path"
+    gunzip <config.tgz | tar xf -
+    if [ "$is64" = true ]; then
+      config/install.sh -default 64
+    else
+      config/install.sh
+    fi
+  )
 }
 
 install_sml $ASDF_INSTALL_TYPE $ASDF_INSTALL_VERSION $ASDF_INSTALL_PATH
