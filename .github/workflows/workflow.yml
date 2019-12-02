@@ -1,0 +1,78 @@
+name: Main workflow
+
+on:
+  push:
+    paths-ignore:
+      - "**.md"
+  pull_request:
+    paths-ignore:
+      - "**.md"
+  schedule:
+    - cron: "0 0 * * 5"
+
+jobs:
+  install:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macOS-latest]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v1
+
+      - name: Install asdf
+        run: git clone https://github.com/asdf-vm/asdf.git $HOME/asdf
+
+      - name: Install sml
+        run: |
+          . $HOME/asdf/asdf.sh
+          asdf plugin-add sml $GITHUB_WORKSPACE
+          asdf install sml latest
+        env:
+          GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  test:
+    runs-on: macOS-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v1
+
+      - name: Install asdf
+        run: git clone https://github.com/asdf-vm/asdf.git $HOME/asdf
+
+      - name: Test plugin
+        env:
+          GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          . $HOME/asdf/asdf.sh
+          asdf plugin-add sml $GITHUB_WORKSPACE
+          bats test
+
+  lint:
+    runs-on: macOS-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v1
+
+      - name: Install shellcheck
+        run: brew install shellcheck
+
+      - name: Run ShellCheck
+        run: shellcheck bin/*
+
+  format:
+    runs-on: macOS-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v1
+
+      - name: Install shfmt
+        run: brew install shfmt
+
+      - name: Run shfmt
+        run: shfmt -d -i 2 -ci .

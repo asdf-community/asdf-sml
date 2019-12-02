@@ -2,11 +2,20 @@
 
 set -eo pipefail
 
+fail() {
+  echo -e "\e[31mFail:\e[m $*"
+  exit 1
+}
+
 install_sml() {
   local install_type=$1
   local version=$2
   local install_path=$3
   local base_uri="http://smlnj.cs.uchicago.edu/dist/working"
+
+  if [ "$install_type" != "version" ]; then
+    fail "asdf-direnv supports release installs only"
+  fi
 
   local is64
 
@@ -16,7 +25,7 @@ install_sml() {
   esac
 
   mkdir -p "$install_path"
-  curl -Lo "$install_path/config.tgz" "$base_uri/$version/config.tgz"
+  curl -Lo "${install_path}/config.tgz" "${base_uri}/${version}/config.tgz"
 
   (
     cd "$install_path"
@@ -29,4 +38,4 @@ install_sml() {
   )
 }
 
-install_sml $ASDF_INSTALL_TYPE $ASDF_INSTALL_VERSION $ASDF_INSTALL_PATH
+install_sml "$ASDF_INSTALL_TYPE" "$ASDF_INSTALL_VERSION" "$ASDF_INSTALL_PATH"
