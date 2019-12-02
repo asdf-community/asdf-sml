@@ -8,8 +8,6 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 [![License](https://img.shields.io/github/license/asdf-community/asdf-sml?style=flat-square&color=brightgreen)](https://github.com/asdf-community/asdf-sml/blob/master/LICENSE)
 
-SML/NJ plugin for [asdf](https://github.com/asdf-vm/asdf) version manager.
-
 ## Installation
 
 ```bash
