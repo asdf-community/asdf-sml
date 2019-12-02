@@ -16,6 +16,6 @@ Check [asdf](https://github.com/asdf-vm/asdf) readme for instructions on how to 
 
 ## Notes
 
-SML is 32bit, on 64bit ubuntu to get required libs:
+Before version 110.94, SML is 32bit.  On 64bit Ubuntu, to get required 32bit libs:
  
  `apt-get install gcc-multilib g++-multilib lib32ncurses5 lib32z1`
