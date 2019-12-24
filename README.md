@@ -1,6 +1,6 @@
 <div align="center">
 <h1>asdf-sml</h1>
-<span><a href="http://www.smlnj.org">Standard ML</a> plugin for asdf version manager</span>
+<span><a href="https://smlnj.org">Standard ML</a> plugin for asdf version manager</span>
 </div>
 <hr />
 
