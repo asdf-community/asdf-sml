@@ -3,7 +3,7 @@
 set -eo pipefail
 
 cmd="curl --silent --location"
-releases_path="http://smlnj.cs.uchicago.edu/dist/working"
+releases_path="https://smlnj.org/dist/working"
 
 if [ -n "$GITHUB_API_TOKEN" ]; then
   cmd="$cmd --header 'Authorization: token $GITHUB_API_TOKEN'"
