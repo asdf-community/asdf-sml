@@ -4,7 +4,9 @@
 </div>
 <hr />
 
-[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/asdf-community/asdf-sml/Main%20workflow?style=flat-square)](https://github.com/asdf-community/asdf-sml/actions) <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)<!-- ALL-CONTRIBUTORS-BADGE:END -->
+[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/asdf-community/asdf-sml/Main%20workflow?style=flat-square)](https://github.com/asdf-community/asdf-sml/actions) <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 [![License](https://img.shields.io/github/license/asdf-community/asdf-sml?style=flat-square&color=brightgreen)](https://github.com/asdf-community/asdf-sml/blob/master/LICENSE)
 
@@ -38,8 +40,8 @@ Thanks goes to these wonderful people
 <!-- markdownlint-disable -->
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/nverno"><img src="https://avatars2.githubusercontent.com/u/4791025?v=4" width="100px;" alt="nverno"/><br /><sub><b>nverno</b></sub></a><br /><a href="https://github.com/asdf-community/asdf-sml/commits?author=nverno" title="Code">💻</a> <a href="https://github.com/asdf-community/asdf-sml/commits?author=nverno" title="Documentation">📖</a> <a href="#maintenance-nverno" title="Maintenance">🚧</a></td>
-    <td align="center"><a href="https://bsky.moe"><img src="https://avatars3.githubusercontent.com/u/38746192?v=4" width="100px;" alt="BSKY"/><br /><sub><b>BSKY</b></sub></a><br /><a href="https://github.com/asdf-community/asdf-sml/commits?author=imbsky" title="Code">💻</a> <a href="https://github.com/asdf-community/asdf-sml/commits?author=imbsky" title="Documentation">📖</a> <a href="#maintenance-imbsky" title="Maintenance">🚧</a></td>
+    <td align="center"><a href="https://github.com/nverno"><img src="https://avatars2.githubusercontent.com/u/4791025?v=4" width="100px;" alt=""/><br /><sub><b>nverno</b></sub></a><br /><a href="https://github.com/asdf-community/asdf-sml/commits?author=nverno" title="Code">💻</a> <a href="https://github.com/asdf-community/asdf-sml/commits?author=nverno" title="Documentation">📖</a> <a href="#maintenance-nverno" title="Maintenance">🚧</a></td>
+    <td align="center"><a href="https://bsky.moe"><img src="https://avatars3.githubusercontent.com/u/38746192?v=4" width="100px;" alt=""/><br /><sub><b>BSKY</b></sub></a><br /><a href="https://github.com/asdf-community/asdf-sml/commits?author=imbsky" title="Code">💻</a> <a href="https://github.com/asdf-community/asdf-sml/commits?author=imbsky" title="Documentation">📖</a> <a href="#maintenance-imbsky" title="Maintenance">🚧</a> <a href="#infra-imbsky" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a></td>
   </tr>
 </table>
 
