@@ -1,28 +1,24 @@
 name: Main workflow
 
 on:
-  push:
-    paths-ignore:
-      - "**.md"
-      - ".all-contributorsrc"
   pull_request:
-    paths-ignore:
-      - "**.md"
-      - ".all-contributorsrc"
+  push:
   schedule:
-    - cron: "0 0 * * 5"
+    - cron: 0 0 * * 5
 
 jobs:
   install:
     strategy:
       matrix:
-        os: [ubuntu-latest, macOS-latest]
+        os:
+          - macos-latest
+          - ubuntu-latest
 
     runs-on: ${{ matrix.os }}
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2.3.2
+        uses: actions/checkout@v2
 
       - name: Install asdf
         run: git clone https://github.com/asdf-vm/asdf.git $HOME/asdf
@@ -33,32 +29,32 @@ jobs:
           asdf plugin-add sml $GITHUB_WORKSPACE
           asdf install sml latest
         env:
-          GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_API_TOKEN: ${{ github.token }}
 
   test:
-    runs-on: macOS-latest
+    runs-on: macos-latest
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2.3.2
+        uses: actions/checkout@v2
 
       - name: Install asdf
         run: git clone https://github.com/asdf-vm/asdf.git $HOME/asdf
 
       - name: Test plugin
-        env:
-          GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           . $HOME/asdf/asdf.sh
           asdf plugin-add sml $GITHUB_WORKSPACE
           bats test
+        env:
+          GITHUB_API_TOKEN: ${{ github.token }}
 
   lint:
-    runs-on: macOS-latest
+    runs-on: macos-latest
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2.3.2
+        uses: actions/checkout@v2
 
       - name: Install shellcheck
         run: brew install shellcheck
@@ -67,11 +63,11 @@ jobs:
         run: shellcheck bin/*
 
   format:
-    runs-on: macOS-latest
+    runs-on: macos-latest
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2.3.2
+        uses: actions/checkout@v2
 
       - name: Install shfmt
         run: brew install shfmt
